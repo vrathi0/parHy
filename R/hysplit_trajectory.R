@@ -300,7 +300,7 @@ hysplit_trajectory <- function(lat = 49.263,
       copy.mode = TRUE
     )
     
-    unlink(file.path(exec_dir, trajectory_files), force = TRUE)
+   # unlink(file.path(exec_dir, trajectory_files), force = TRUE)
     
     # Obtain a trajectory data frame
     traj_tbl <-
@@ -319,8 +319,8 @@ hysplit_trajectory <- function(lat = 49.263,
   }
 
   if (clean_up) {
-    unlink(file.path(exec_dir, traj_output_files()), force = TRUE)
-    unlink(recep_file_path_stack, recursive = TRUE, force = TRUE)
+   # unlink(file.path(exec_dir, traj_output_files()), force = TRUE)
+   # unlink(recep_file_path_stack, recursive = TRUE, force = TRUE)
   }
   
   ensemble_tbl <-
