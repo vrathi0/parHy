@@ -152,16 +152,7 @@ hysplit_trajectory <- function(lat = 49.263,
     stop("The coordinate vectors are not the same length.", call. = FALSE)
   }
   
-  # Download any necessary meteorological data files
-  # and return a vector of the all files required
-  met_files <- 
-    download_met_files(
-      met_type = met_type,
-      days = days,
-      duration = duration,
-      direction = direction,
-      met_dir = met_dir
-    )
+  
   
   # Generate a tibble of receptor sites
   receptors_tbl <- 
@@ -239,6 +230,19 @@ hysplit_trajectory <- function(lat = 49.263,
         if (!dir.exists(model_folder_path)){
           dir.create(model_folder_path)
         }
+        
+        
+        # Download any necessary meteorological data files
+  # and return a vector of the all files required
+  met_files <- 
+    download_met_files(
+      met_type = met_type,
+      days = days,
+      duration = duration,
+      direction = direction,
+      met_dir = model_folder_path
+    )
+        
         
         # Write the config and ascdata lists to files in
         # the `exec` directory
